@@ -17,6 +17,7 @@ public class TestUtil {
 	public static String TESTDATA_SHEET_PATH = "/src/main/java/com/pvai/qa/testdata/ExcelTestData1.xlsx";
 	public static Workbook book;
 	public static Sheet sheet;
+	public static String[] realEstateInfoList = {"Listings of Homes for Sale", "Foreclosure Listings", "Home Values", "New Home Construction"};
 	
 
 	public static Object[][] getTestData(String sheetName) throws InvalidFormatException {

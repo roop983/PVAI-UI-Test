@@ -64,28 +64,7 @@ public class HomeValues extends TestBase{
 		
 	}	
 	
-	public HomeValues(String keyname, Double latValue, Double longValue) {
-		this.keyname=keyname;
-		this.latValue=latValue;
-		this.longValue=longValue;
-		
-	}	
 	
-	public String getKeyName() {
-		return keyname;
-	}
-	
-	public Double getLatitude() {
-		return latValue;
-	}
-	
-	public Double getLongitude() {
-		return longValue;
-	}
-	
-	public String toString() {
-		return keyname+" "+latValue+" "+longValue;
-	}
 	
 	
 	public void searchPlace(String searchValue) {
@@ -97,39 +76,7 @@ public class HomeValues extends TestBase{
 	}
 	
 	
-	public List<HomeValues> extractCoordinatesList(String keyname){
-		List<HomeValues> list =new ArrayList<HomeValues> ();
-		String getCoordinatesURL = driver.getCurrentUrl();
-		
-		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
-		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
-		System.out.println(latValue);
-		System.out.println(longValue);
-		HomeValues l1=new HomeValues(keyname,latValue,longValue);
-		list.add(l1);
-		return list;
-	}
 	
-	public Map<String, Double> extractCoordinates(String keyname){
-		Map<String, Double> map = new HashMap<String, Double>();
-		String getCoordinatesURL = driver.getCurrentUrl();
-		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
-		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
-		map.put("latitude", latValue);
-		map.put("longitude", longValue);
-		return map;
-	}
-	
-//	public Double getCoordinatesValue(Map<String, Double> m, String keyname){
-//		Double coordinateValue = 0.0;
-//		for (Map.Entry<String, Double> mEntry :  m.entrySet()) {
-//			if (mEntry.getKey().contains(keyname)) {
-//				coordinateValue = mEntry.getValue();
-//			}
-//		}
-//		return coordinateValue;
-//	}
-
 
 	
 }
