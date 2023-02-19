@@ -38,6 +38,12 @@ public class HomeValues extends TestBase{
 	@FindBy(xpath="//ul[@id='rewCategoryOptionBinder']/li/input")
 	List<WebElement> list;
 	
+	@FindBy(xpath="//ul[@id='rewCategoryOptionBinder']/descendant::label[text()='Home Values']//preceding-sibling::input")
+	WebElement homeValuesRadio;
+	
+	@FindBy(xpath="//div[@class='proCard Step']/button[text()='Continue']")
+	WebElement continueBtnAfterEstInfo;
+	
 	
 	
 	String keyname;
