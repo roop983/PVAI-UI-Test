@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pvai.qa.base.TestBase;
+import com.pvai.qa.util.TestUtil;
 
 
 public class HomeValues extends TestBase{
@@ -35,8 +36,8 @@ public class HomeValues extends TestBase{
 	WebElement typeRealEstateInfo;
 	
 	
-	@FindBy(xpath="//ul[@id='rewCategoryOptionBinder']/li/input")
-	List<WebElement> list;
+	@FindBy(xpath="//ul[@id='rewCategoryOptionBinder']/li/label")
+	List<WebElement> realEstateInfoTypeslist;
 	
 	@FindBy(xpath="//ul[@id='rewCategoryOptionBinder']/descendant::label[text()='Home Values']//preceding-sibling::input")
 	WebElement homeValuesRadio;
@@ -44,11 +45,6 @@ public class HomeValues extends TestBase{
 	@FindBy(xpath="//div[@class='proCard Step']/button[text()='Continue']")
 	WebElement continueBtnAfterEstInfo;
 	
-	
-	
-	String keyname;
-	Double latValue;
-	Double longValue;
 	
 	
 	public HomeValues() {
@@ -65,18 +61,29 @@ public class HomeValues extends TestBase{
 	}	
 	
 	
+	public void enterZipCode(String searchValue) {
+		inputZipCode.sendKeys(searchValue);
+		goButton.click();
+	}
 	
+	public int validateRealEstateTypes() {
+		wait.until(ExpectedConditions.elementToBeClickable(homeValuesRadio));
+		int countrealEstateInfoTypes = 0;
+		for(WebElement el:realEstateInfoTypeslist) {
+			for (String s: TestUtil.realEstateExpectedInfoList) {
+				if (s.equals(el.getText())) {
+					countrealEstateInfoTypes++;
+				}
+			}
+		}
+		return countrealEstateInfoTypes;
+	}
 	
-	public void searchPlace(String searchValue) {
-		driver.get(prop.getProperty("url"));
-		wait.until(ExpectedConditions.elementToBeClickable(toSearchBoxInput));
-		toSearchBoxInput.sendKeys(searchValue);
-		searchButton.click();
-		wait.until(ExpectedConditions.elementToBeClickable(directions));
+	public void selectEstateInfoType() {
+		homeValuesRadio.click();
+		continueBtnAfterEstInfo.click();
 	}
 	
 	
-	
-
 	
 }

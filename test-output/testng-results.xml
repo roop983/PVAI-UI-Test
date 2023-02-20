@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-02-19T19:02:37 GMT-08:00" name="Default suite" finished-at="2023-02-19T19:02:57 GMT-08:00" duration-ms="19784">
+    <groups>
+    </groups>
+    <test started-at="2023-02-19T19:02:37 GMT-08:00" name="Default test" finished-at="2023-02-19T19:02:57 GMT-08:00" duration-ms="19784">
+      <class name="com.pvai.qa.testcases.HomeValuesTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.pvai.qa.testcases.HomeValuesTest@2e3967ea]" started-at="2023-02-19T19:02:37 GMT-08:00" name="setUp" finished-at="2023-02-19T19:02:54 GMT-08:00" duration-ms="16361" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="homeRealEstateTest()[pri:1, instance:com.pvai.qa.testcases.HomeValuesTest@2e3967ea]" started-at="2023-02-19T19:02:54 GMT-08:00" name="homeRealEstateTest" finished-at="2023-02-19T19:02:57 GMT-08:00" duration-ms="3207" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homeRealEstateTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.pvai.qa.testcases.HomeValuesTest@2e3967ea]" started-at="2023-02-19T19:02:57 GMT-08:00" name="tearDown" finished-at="2023-02-19T19:02:57 GMT-08:00" duration-ms="127" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.pvai.qa.testcases.HomeValuesTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
