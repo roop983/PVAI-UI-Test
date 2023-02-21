@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -89,6 +90,9 @@ public class HomeValues extends TestBase{
 	@FindBy(xpath="//input[@id='PhoneNumber'][@placeholder='Phone']")
 	WebElement phoneNumber;
 	
+	@FindBy(xpath="//input[@placeholder='Email']")
+	WebElement email;
+	
 	@FindBy(xpath="//input[@name='OffersCheckBox']")
 	WebElement offersChkbox;
 	
@@ -100,10 +104,12 @@ public class HomeValues extends TestBase{
 	WebElement 
 	continueSearchHomeValuesBtn;
 	
+	//Acknowledgement/Response Form
+	
 	@FindBy(xpath="//div[@class='thankCard Step']/header/h3")
 	WebElement confirmation;
 	
-	@FindBy(xpath="//div[@class='thankCard Step']/section/p")
+	@FindBy(xpath="//div[@class='thankCard Step']/section/p[contains(text(), 'Thank you')]")
 	WebElement thankYouMsg;
 	
 	//validate
@@ -150,13 +156,15 @@ public class HomeValues extends TestBase{
 	
 	
 	public String getHomeValuesFormTitle() {
+		wait.until(ExpectedConditions.elementToBeClickable(streetAddressProperty));
+		wait.until(ExpectedConditions.elementToBeClickable(changeLocation));
 		String homeValuesFormTitle = searchHomeValuesText.getText();
 		return homeValuesFormTitle;
 	}
 	
 	public void enterHomeValuationReasonAndAddress() {
 		Select homeValuationReason = new Select(homeValuationReasonDropDwn);
-		homeValuationReason.selectByValue(prop.getProperty("homeValuationReason"));
+		homeValuationReason.selectByVisibleText(prop.getProperty("homeValuationReason"));
 		streetAddressProperty.sendKeys(prop.getProperty("address"));	
 	}
 	
@@ -173,12 +181,16 @@ public class HomeValues extends TestBase{
 	public void selectHomeValuesDrpDwn() {
 		Select bedroomSelection = new Select(bedroomsSelect);
 		bedroomSelection.selectByValue(prop.getProperty("bedroomSelectionValue"));
+		
 		Select bathroomSelection = new Select(bathroomsSelect);
 		bathroomSelection.selectByValue(prop.getProperty("bathroomSelectionValue"));
+		
 		Select propertySelection = new Select(propertyTypeSelect);
-		propertySelection.selectByValue(prop.getProperty("propertySelectionValue"));
+		propertySelection.selectByVisibleText(prop.getProperty("propertySelectionValue"));
+		
 		Select propertyTimeSelection = new Select(sellPropertyTimeSelect);
-		propertyTimeSelection.selectByValue(prop.getProperty("propertyTimeSelectionValue"));
+		propertyTimeSelection.selectByVisibleText(prop.getProperty("propertyTimeSelectionValue"));
+		
 		Select priceRangeSelection = new Select(minimumPriceRangeSelect);
 		priceRangeSelection.selectByValue(prop.getProperty("priceRangeSelectionValue"));
 		
@@ -188,6 +200,7 @@ public class HomeValues extends TestBase{
 		firstName.sendKeys(prop.getProperty("firstname"));	
 		lastName.sendKeys(prop.getProperty("lastname"));
 		phoneNumber.sendKeys(prop.getProperty("phonenumber"));
+		email.sendKeys(prop.getProperty("emailaddress"));
 	}
 	
 	public void checkOffersSelection() {
@@ -196,7 +209,7 @@ public class HomeValues extends TestBase{
 	}
 	
 	public Boolean verifyContinueSearchHomeValuesBtn() {
-		Boolean continueBtnEnabled = confirmation.isEnabled();
+		Boolean continueBtnEnabled = continueSearchHomeValuesBtn.isEnabled();
 		return continueBtnEnabled;
 	}
 	
@@ -205,6 +218,7 @@ public class HomeValues extends TestBase{
 	}
 	
 	public String getConfirmationText() {
+		wait.until(ExpectedConditions.elementToBeClickable(continueReadingBtn));
 		String confirmationText = confirmation.getText();
 		return confirmationText;
 	}
@@ -214,6 +228,10 @@ public class HomeValues extends TestBase{
 		return thankYouMsgText;
 	}
 	
+	public Boolean verifyContinueReadingBtn() {
+		Boolean continueReadingBtnEnabled = continueReadingBtn.isEnabled();
+		return continueReadingBtnEnabled;
+	}
 	
 	
 }

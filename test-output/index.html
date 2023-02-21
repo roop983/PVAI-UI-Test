@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,6 +104,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="com.pvai.qa.testcases.HomeValuesTest" class="method navigator-link" hash-for-method="homeRealEstateTest">homeRealEstateTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.pvai.qa.testcases.HomeValuesTest" class="method navigator-link" hash-for-method="searchHomeValuesFormTest">searchHomeValuesFormTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -131,12 +136,19 @@
                   <span class="method-name">homeRealEstateTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="searchHomeValuesFormTest">
+                  </a> <!-- searchHomeValuesFormTest -->
+                  <span class="method-name">searchHomeValuesFormTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/z3/8c3vsq353cv6lg1lwnxlv4hc0000gp/T/testng-eclipse-1177823845/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/z3/8c3vsq353cv6lg1lwnxlv4hc0000gp/T/testng-eclipse--329486056/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -185,16 +197,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'homeRealEstateTest')
+data.setCell(0, 1, 'searchHomeValuesFormTest')
 data.setCell(0, 2, 'com.pvai.qa.testcases.HomeValuesTest')
-data.setCell(0, 3, 3207);
+data.setCell(0, 3, 6324);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'homeRealEstateTest')
+data.setCell(1, 2, 'com.pvai.qa.testcases.HomeValuesTest')
+data.setCell(1, 3, 3123);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 9 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -227,11 +243,15 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">homeRealEstateTest</span>
-                <span class="method-start">16370 ms</span>
+                <span class="method-start">23073 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">searchHomeValuesFormTest</span>
+                <span class="method-start">26205 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">19583 ms</span>
+                <span class="method-start">32532 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

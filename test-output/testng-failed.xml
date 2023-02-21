@@ -6,8 +6,8 @@
       <class name="com.pvai.qa.testcases.HomeValuesTest">
         <methods>
           <include name="tearDown"/>
+          <include name="searchHomeValuesFormTest"/>
           <include name="setUp"/>
-          <include name="homeRealEstateTest"/>
         </methods>
       </class> <!-- com.pvai.qa.testcases.HomeValuesTest -->
     </classes>

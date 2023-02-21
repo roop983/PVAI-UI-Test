@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Samsung Test Automation Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="Samsung Challenge Test Case(failed)" verbose="0">
+    <classes>
+      <class name="com.pvai.qa.testcases.HomeValuesTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="searchHomeValuesFormTest"/>
+        </methods>
+      </class> <!-- com.pvai.qa.testcases.HomeValuesTest -->
+    </classes>
+  </test> <!-- Samsung Challenge Test Case(failed) -->
+</suite> <!-- Failed suite [Samsung Test Automation Suite] -->

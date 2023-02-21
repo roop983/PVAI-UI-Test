@@ -25,6 +25,7 @@ public class TestBase {
 	
 	public TestBase() {
 		
+		//Initializing property file
 		prop=new Properties();
 		try {
 			FileInputStream ip=new FileInputStream(System.getProperty("user.dir") + "/src/main/java/com/pvai/qa/config/config.properties");
@@ -41,18 +42,17 @@ public class TestBase {
 		
 		String browser=prop.getProperty("browser");
 		
+		//Creating instance of Chrome driver
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
 			driver=new ChromeDriver();
 		}	
+		
+		//Maximizing window
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-	//	driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestUtil.IMPLICIT_WAIT));
-	//	driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
-		
-		
 		driver.get(prop.getProperty("url"));
 
 	}
