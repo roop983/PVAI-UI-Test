@@ -35,16 +35,40 @@ public class HomeValuesTest extends TestBase{
 	}
 	
 	
-	
-	
-	@Test(priority=1)  // Add User Test
+	@Test(priority=1)  
 	public void homeRealEstateTest() {
 		try {
 			homeValue.enterZipCode(prop.getProperty("zipcode"));
 			int countrealEstateInfoTypes = homeValue.validateRealEstateTypes();
 			Assert.assertEquals(countrealEstateInfoTypes, testUtil.realEstateExpectedInfoList.length);
-			homeValue.selectEstateInfoType();
+			homeValue.selectEstateInfoType();	
+		}
 		
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(e.getStackTrace());
+		}
+		
+	}
+	
+	@Test(priority=2)  
+	public void searchHomeValuesFormTest() {
+		try {
+			String expectedAddress = prop.getProperty("address");
+			String expectedCityState = expectedAddress.substring(expectedAddress.indexOf(',')+2, expectedAddress.lastIndexOf(','));
+			String homeValuesFormTitle = homeValue.getHomeValuesFormTitle();
+			Assert.assertEquals(homeValuesFormTitle, prop.getProperty("searchHomeValueFormTitle").concat(expectedCityState));
+			homeValue.enterHomeValuationReasonAndAddress();
+			Assert.assertEquals(homeValue.getCityState(), expectedCityState);
+			Assert.assertTrue(homeValue.verifyChangeLocation(), "Change Location is not enabled");
+			homeValue.selectHomeValuesDrpDwn();
+			homeValue.enterSelfDetails();
+			homeValue.checkOffersSelection();
+			Assert.assertTrue(homeValue.verifyContinueSearchHomeValuesBtn(), "Continue Button is not enabled");
+			homeValue.clickContinueSearchHomeValuesBtn();
+			Assert.assertEquals(homeValue.getConfirmationText(), prop.getProperty("confirmationText"));
+			Assert.assertEquals(homeValue.getCityState(), prop.getProperty("thankYouMsgText"));
+			
 		}
 		
 		catch (Exception e) {

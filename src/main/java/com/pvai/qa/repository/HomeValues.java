@@ -93,16 +93,18 @@ public class HomeValues extends TestBase{
 	WebElement offersChkbox;
 	
 	@FindBy(xpath="//input[@name='RequestMortgageInfo']")
-	WebElement refinanceOffersChkbox;
+	WebElement 
+	refinanceOffersChkbox;
 	
 	@FindBy(xpath="//button[@class='goBtn rewGetQuoteContact'][text()='Continue']")
-	WebElement continueSearchHomeValuesBtn;
+	WebElement 
+	continueSearchHomeValuesBtn;
 	
 	@FindBy(xpath="//div[@class='thankCard Step']/header/h3")
-	WebElement confirmationText;
+	WebElement confirmation;
 	
 	@FindBy(xpath="//div[@class='thankCard Step']/section/p")
-	WebElement thankYouMsgText;
+	WebElement thankYouMsg;
 	
 	//validate
 	@FindBy(xpath="//button[@class='goBtn rewGetQuoteDone'][text()='Continue Reading']")
@@ -152,7 +154,7 @@ public class HomeValues extends TestBase{
 		return homeValuesFormTitle;
 	}
 	
-	public void enterHomeValuationReason() {
+	public void enterHomeValuationReasonAndAddress() {
 		Select homeValuationReason = new Select(homeValuationReasonDropDwn);
 		homeValuationReason.selectByValue(prop.getProperty("homeValuationReason"));
 		streetAddressProperty.sendKeys(prop.getProperty("address"));	
@@ -163,22 +165,22 @@ public class HomeValues extends TestBase{
 		return cityDateText;
 	}
 	
-	public Boolean verifyChangeLocationText() {
-		Boolean changeLocationDisplayed = changeLocation.isEnabled();
-		return changeLocationDisplayed;
+	public Boolean verifyChangeLocation() {
+		Boolean changeLocationEnabled = changeLocation.isEnabled();
+		return changeLocationEnabled;
 	}
 	
 	public void selectHomeValuesDrpDwn() {
 		Select bedroomSelection = new Select(bedroomsSelect);
-		bedroomSelection.selectByValue(prop.getProperty(""));
+		bedroomSelection.selectByValue(prop.getProperty("bedroomSelectionValue"));
 		Select bathroomSelection = new Select(bathroomsSelect);
-		bathroomSelection.selectByValue(prop.getProperty(""));
+		bathroomSelection.selectByValue(prop.getProperty("bathroomSelectionValue"));
 		Select propertySelection = new Select(propertyTypeSelect);
-		propertySelection.selectByValue(prop.getProperty(""));
+		propertySelection.selectByValue(prop.getProperty("propertySelectionValue"));
 		Select propertyTimeSelection = new Select(sellPropertyTimeSelect);
-		propertyTimeSelection.selectByValue(prop.getProperty(""));
+		propertyTimeSelection.selectByValue(prop.getProperty("propertyTimeSelectionValue"));
 		Select priceRangeSelection = new Select(minimumPriceRangeSelect);
-		priceRangeSelection.selectByValue(prop.getProperty(""));
+		priceRangeSelection.selectByValue(prop.getProperty("priceRangeSelectionValue"));
 		
 	}
 	
@@ -186,6 +188,30 @@ public class HomeValues extends TestBase{
 		firstName.sendKeys(prop.getProperty("firstname"));	
 		lastName.sendKeys(prop.getProperty("lastname"));
 		phoneNumber.sendKeys(prop.getProperty("phonenumber"));
+	}
+	
+	public void checkOffersSelection() {
+		offersChkbox.click();
+		refinanceOffersChkbox.click();
+	}
+	
+	public Boolean verifyContinueSearchHomeValuesBtn() {
+		Boolean continueBtnEnabled = confirmation.isEnabled();
+		return continueBtnEnabled;
+	}
+	
+	public void clickContinueSearchHomeValuesBtn() {
+		continueSearchHomeValuesBtn.click();
+	}
+	
+	public String getConfirmationText() {
+		String confirmationText = confirmation.getText();
+		return confirmationText;
+	}
+	
+	public String getThankYouMsgText() {
+		String thankYouMsgText = thankYouMsg.getText();
+		return thankYouMsgText;
 	}
 	
 	
