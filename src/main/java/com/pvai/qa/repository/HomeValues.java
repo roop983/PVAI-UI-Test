@@ -63,7 +63,7 @@ public class HomeValues extends TestBase{
 	WebElement cityState;
 	
 	@FindBy(xpath="//div[@id='rewServiceProjectQuestions']/div/span[@class='changeLocation editLoc']")
-	WebElement changeLocationText;
+	WebElement changeLocation;
 	
 	@FindBy(xpath="//select[@class='bedrooms allSelect'][@name='Bedrooms']")
 	WebElement bedroomsSelect;
@@ -109,15 +109,6 @@ public class HomeValues extends TestBase{
 	WebElement continueReadingBtn;
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public HomeValues() {
 		this.driver = driver;
 		//this.wait = wait;
@@ -153,6 +144,48 @@ public class HomeValues extends TestBase{
 	public void selectEstateInfoType() {
 		homeValuesRadio.click();
 		continueBtnAfterEstInfo.click();
+	}
+	
+	
+	public String getHomeValuesFormTitle() {
+		String homeValuesFormTitle = searchHomeValuesText.getText();
+		return homeValuesFormTitle;
+	}
+	
+	public void enterHomeValuationReason() {
+		Select homeValuationReason = new Select(homeValuationReasonDropDwn);
+		homeValuationReason.selectByValue(prop.getProperty("homeValuationReason"));
+		streetAddressProperty.sendKeys(prop.getProperty("address"));	
+	}
+	
+	public String getCityState() {
+		String cityDateText = cityState.getText();
+		return cityDateText;
+	}
+	
+	public Boolean verifyChangeLocationText() {
+		Boolean changeLocationDisplayed = changeLocation.isEnabled();
+		return changeLocationDisplayed;
+	}
+	
+	public void selectHomeValuesDrpDwn() {
+		Select bedroomSelection = new Select(bedroomsSelect);
+		bedroomSelection.selectByValue(prop.getProperty(""));
+		Select bathroomSelection = new Select(bathroomsSelect);
+		bathroomSelection.selectByValue(prop.getProperty(""));
+		Select propertySelection = new Select(propertyTypeSelect);
+		propertySelection.selectByValue(prop.getProperty(""));
+		Select propertyTimeSelection = new Select(sellPropertyTimeSelect);
+		propertyTimeSelection.selectByValue(prop.getProperty(""));
+		Select priceRangeSelection = new Select(minimumPriceRangeSelect);
+		priceRangeSelection.selectByValue(prop.getProperty(""));
+		
+	}
+	
+	public void enterSelfDetails() {
+		firstName.sendKeys(prop.getProperty("firstname"));	
+		lastName.sendKeys(prop.getProperty("lastname"));
+		phoneNumber.sendKeys(prop.getProperty("phonenumber"));
 	}
 	
 	
