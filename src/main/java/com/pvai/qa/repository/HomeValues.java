@@ -23,6 +23,8 @@ import com.pvai.qa.util.TestUtil;
 
 public class HomeValues extends TestBase{
 	
+	//Enter Zip code
+	
 	@FindBy(xpath="//div/input[@id='rewLocation']//preceding-sibling::h3")
 	WebElement connectEstateAgents;
 	
@@ -32,9 +34,10 @@ public class HomeValues extends TestBase{
 	@FindBy(xpath="//div[input[@id='rewLocation']]/button[@class='goBtn rewGetQuoteGo']")
 	WebElement goButton;
 	
+	//Real Estate Info Types Form
+	
 	@FindBy(xpath="//div[@class='proCard Step']/h3")
 	WebElement typeRealEstateInfo;
-	
 	
 	@FindBy(xpath="//ul[@id='rewCategoryOptionBinder']/li/label")
 	List<WebElement> realEstateInfoTypeslist;
@@ -44,6 +47,74 @@ public class HomeValues extends TestBase{
 	
 	@FindBy(xpath="//div[@class='proCard Step']/button[text()='Continue']")
 	WebElement continueBtnAfterEstInfo;
+	
+	//Search Home Values Form
+	
+	@FindBy(xpath="//div[@class='userInfo Step']/h5")
+	WebElement searchHomeValuesText;
+	
+	@FindBy(xpath="//select[@class='homeVal allSelect']")
+	WebElement homeValuationReasonDropDwn;
+	
+	@FindBy(xpath="//div[@id='rewServiceProjectQuestions']/input[@placeholder='Address']")
+	WebElement streetAddressProperty;
+	
+	@FindBy(xpath="//div[@id='rewServiceProjectQuestions']/div/span[@class='locationText rewLocationCopy2']")
+	WebElement cityState;
+	
+	@FindBy(xpath="//div[@id='rewServiceProjectQuestions']/div/span[@class='changeLocation editLoc']")
+	WebElement changeLocationText;
+	
+	@FindBy(xpath="//select[@class='bedrooms allSelect'][@name='Bedrooms']")
+	WebElement bedroomsSelect;
+	
+	@FindBy(xpath="//select[@class='bathrooms allSelect'][@name='Bathrooms']")
+	WebElement bathroomsSelect;
+	
+	@FindBy(xpath="//select[@name='PropertyType']")
+	WebElement propertyTypeSelect;
+	
+	@FindBy(xpath="//select[@name='TimeFrame']")
+	WebElement sellPropertyTimeSelect;
+	
+	@FindBy(xpath="//select[@name='PriceRange']")
+	WebElement minimumPriceRangeSelect;
+	
+	@FindBy(xpath="//input[@placeholder='First Name']")
+	WebElement firstName;
+	
+	@FindBy(xpath="//input[@placeholder='Last Name']")
+	WebElement lastName;
+	
+	@FindBy(xpath="//input[@id='PhoneNumber'][@placeholder='Phone']")
+	WebElement phoneNumber;
+	
+	@FindBy(xpath="//input[@name='OffersCheckBox']")
+	WebElement offersChkbox;
+	
+	@FindBy(xpath="//input[@name='RequestMortgageInfo']")
+	WebElement refinanceOffersChkbox;
+	
+	@FindBy(xpath="//button[@class='goBtn rewGetQuoteContact'][text()='Continue']")
+	WebElement continueSearchHomeValuesBtn;
+	
+	@FindBy(xpath="//div[@class='thankCard Step']/header/h3")
+	WebElement confirmationText;
+	
+	@FindBy(xpath="//div[@class='thankCard Step']/section/p")
+	WebElement thankYouMsgText;
+	
+	//validate
+	@FindBy(xpath="//button[@class='goBtn rewGetQuoteDone'][text()='Continue Reading']")
+	WebElement continueReadingBtn;
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
