@@ -41,6 +41,10 @@ public class HomeValuesTest extends TestBase{
 	@Test(priority=1)  
 	public void homeRealEstateTest() {
 		try {
+			//Assert that ZipCode button is displayed
+			Assert.assertTrue(homeValue.verifyZipCodeDisplayed(), "ZipCode button is not displayed");
+			
+			//Enter the proper zipcode
 			homeValue.enterZipCode(prop.getProperty("zipcode"));
 			
 			//Count all the Real Estate Info Type and assert with expected count
@@ -67,6 +71,13 @@ public class HomeValuesTest extends TestBase{
 			String homeValuesFormTitle = homeValue.getHomeValuesFormTitle();
 			Assert.assertEquals(homeValuesFormTitle, prop.getProperty("searchHomeValueFormTitle").concat(expectedCityState));
 			
+			//Count all the Home Valuation reasons and assert with expected count
+			int countOptionsForHomeValuationReason = homeValue.validateHomeValuationReasons();
+			Assert.assertEquals(countOptionsForHomeValuationReason, testUtil.homeValuationReasonList.length);
+			
+			//Assert that Error is displayed if Continue Button is clicked without entering Home Valuation reason
+			Assert.assertTrue(homeValue.verifyErrorDisplayedIfHomeValuationReasonEmpty(), "Error Message is not displayed");
+			
 			//Enter Reason for Home Valuation and enter Street Address
 			homeValue.enterHomeValuationReasonAndAddress();
 			
@@ -76,11 +87,37 @@ public class HomeValuesTest extends TestBase{
 			//Assert that Change Location is enabled
 			Assert.assertTrue(homeValue.verifyChangeLocation(), "Change Location is not enabled");
 			
+			//Assert that update Btn is not displayed as Change Location is not yet clicked
+			Assert.assertFalse(homeValue.verifyUpdateBtn(), "Update Button is displayed");
+			
+			//Assert that Zip code textbox is displayed after clicking Change Location
+			Assert.assertTrue(homeValue.verifyZipCodeTextBoxOnChangeLocationClick(), "ZipCode Text Box is not displayed");
+			
+			//Assert that update Btn is displayed after clicking Change Location
+			Assert.assertTrue(homeValue.verifyUpdateBtn(), "Update Button is not displayed");
+			
+			//Update the location
+			homeValue.updateLocation();
+			
+			//Assert on the new location value displayed for City and State
+			Assert.assertEquals(homeValue.getCityState(), prop.getProperty("changedCityState"));
+			
+			//Assert on the title containing the changed city and state 
+			homeValuesFormTitle = homeValue.getHomeValuesFormTitle();
+			Assert.assertEquals(homeValuesFormTitle, prop.getProperty("searchHomeValueFormTitle").concat(prop.getProperty("changedCityState")));
+			
+			
 			//Select Bedrooms, Bathrooms, Type of Property, Planning to Sell, Minumum home worth from dropdowns with this method
 			homeValue.selectHomeValuesDrpDwn();
 			
 			//Enter details about person filling up form
 			homeValue.enterSelfDetails();
+			
+			//Assert that error is displayed if incorrect format for Email address is entered
+			Assert.assertTrue(homeValue.verifyErrorDisplayedIfInvalidEmailAddress(), "Error Message is not displayed");
+			
+			//Enter correct Email address
+			homeValue.enterValidEmail();
 			
 			//Select checkboxes
 			homeValue.checkOffersSelection();

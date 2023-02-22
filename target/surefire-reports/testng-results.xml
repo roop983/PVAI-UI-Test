@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-21T13:47:34 GMT-08:00" name="PVAI UI Test Automation Suite" finished-at="2023-02-21T13:47:57 GMT-08:00" duration-ms="22758">
+  <suite started-at="2023-02-21T19:13:24 GMT-08:00" name="PVAI UI Test Automation Suite" finished-at="2023-02-21T19:13:50 GMT-08:00" duration-ms="26304">
     <groups>
     </groups>
-    <test started-at="2023-02-21T13:47:34 GMT-08:00" name="PVAI UI Challenge Test Case" finished-at="2023-02-21T13:47:57 GMT-08:00" duration-ms="22758">
+    <test started-at="2023-02-21T19:13:24 GMT-08:00" name="PVAI UI Challenge Test Case" finished-at="2023-02-21T19:13:50 GMT-08:00" duration-ms="26304">
       <class name="com.pvai.qa.testcases.HomeValuesTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.pvai.qa.testcases.HomeValuesTest@5552768b]" started-at="2023-02-21T13:47:34 GMT-08:00" name="setUp" finished-at="2023-02-21T13:47:47 GMT-08:00" duration-ms="12991" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.pvai.qa.testcases.HomeValuesTest@5552768b]" started-at="2023-02-21T19:13:24 GMT-08:00" name="setUp" finished-at="2023-02-21T19:13:37 GMT-08:00" duration-ms="13244" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="homeRealEstateTest()[pri:1, instance:com.pvai.qa.testcases.HomeValuesTest@5552768b]" started-at="2023-02-21T13:47:47 GMT-08:00" name="homeRealEstateTest" finished-at="2023-02-21T13:47:50 GMT-08:00" duration-ms="3242" status="PASS">
+        <test-method signature="homeRealEstateTest()[pri:1, instance:com.pvai.qa.testcases.HomeValuesTest@5552768b]" started-at="2023-02-21T19:13:37 GMT-08:00" name="homeRealEstateTest" finished-at="2023-02-21T19:13:41 GMT-08:00" duration-ms="3313" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homeRealEstateTest -->
-        <test-method signature="searchHomeValuesFormTest()[pri:2, instance:com.pvai.qa.testcases.HomeValuesTest@5552768b]" started-at="2023-02-21T13:47:50 GMT-08:00" name="searchHomeValuesFormTest" finished-at="2023-02-21T13:47:57 GMT-08:00" duration-ms="6356" status="PASS">
+        <test-method signature="searchHomeValuesFormTest()[pri:2, instance:com.pvai.qa.testcases.HomeValuesTest@5552768b]" started-at="2023-02-21T19:13:41 GMT-08:00" name="searchHomeValuesFormTest" finished-at="2023-02-21T19:13:50 GMT-08:00" duration-ms="9560" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchHomeValuesFormTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.pvai.qa.testcases.HomeValuesTest@5552768b]" started-at="2023-02-21T13:47:57 GMT-08:00" name="tearDown" finished-at="2023-02-21T13:47:57 GMT-08:00" duration-ms="122" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.pvai.qa.testcases.HomeValuesTest@5552768b]" started-at="2023-02-21T19:13:50 GMT-08:00" name="tearDown" finished-at="2023-02-21T19:13:50 GMT-08:00" duration-ms="126" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

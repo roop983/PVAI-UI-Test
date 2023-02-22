@@ -54,6 +54,9 @@ public class HomeValues extends TestBase{
 	@FindBy(xpath="//div[@class='userInfo Step']/h5")
 	WebElement searchHomeValuesText;
 	
+	@FindBy(xpath="//select[@class='homeVal allSelect errorColor']")
+	WebElement homeValuationError;
+	
 	@FindBy(xpath="//select[@class='homeVal allSelect']")
 	WebElement homeValuationReasonDropDwn;
 	
@@ -65,6 +68,12 @@ public class HomeValues extends TestBase{
 	
 	@FindBy(xpath="//div[@id='rewServiceProjectQuestions']/div/span[@class='changeLocation editLoc']")
 	WebElement changeLocation;
+	
+	@FindBy(xpath="//input[@id='updateZipCode']")
+	WebElement updateZipCodeTextBox;
+	
+	@FindBy(xpath="//div[@class='showloc']/button[@class='btn updateZip']")
+	WebElement updateBtn;
 	
 	@FindBy(xpath="//select[@class='bedrooms allSelect'][@name='Bedrooms']")
 	WebElement bedroomsSelect;
@@ -92,6 +101,9 @@ public class HomeValues extends TestBase{
 	
 	@FindBy(xpath="//input[@placeholder='Email']")
 	WebElement email;
+
+	@FindBy(xpath="//input[@class='email rewEmailAddress errorColor']")
+	WebElement errorEmail;
 	
 	@FindBy(xpath="//input[@name='OffersCheckBox']")
 	WebElement offersChkbox;
@@ -131,6 +143,11 @@ public class HomeValues extends TestBase{
 	}	
 	
 	
+	public Boolean verifyZipCodeDisplayed() {
+		Boolean inputZipCodeDisplayed = inputZipCode.isDisplayed();
+		return inputZipCodeDisplayed;
+	}
+	
 	public void enterZipCode(String searchValue) {
 		inputZipCode.sendKeys(searchValue);
 		goButton.click();
@@ -162,8 +179,28 @@ public class HomeValues extends TestBase{
 		return homeValuesFormTitle;
 	}
 	
-	public void enterHomeValuationReasonAndAddress() {
+	public Boolean verifyErrorDisplayedIfHomeValuationReasonEmpty() {
+		continueSearchHomeValuesBtn.click();
+		Boolean homeValuationErrorDisplayed = homeValuationError.isDisplayed();
+		return homeValuationErrorDisplayed;
+	}
+	
+	public int validateHomeValuationReasons() {
 		Select homeValuationReason = new Select(homeValuationReasonDropDwn);
+		List<WebElement> lst = homeValuationReason.getOptions();
+		int countValuationReasons = 0;
+		for(WebElement el:lst) {
+			for (String s: TestUtil.homeValuationReasonList) {
+				if (s.equals(el.getText())) {
+					countValuationReasons++;
+				}
+			}
+		}
+		return countValuationReasons;
+	}
+	
+	public void enterHomeValuationReasonAndAddress() {
+		Select homeValuationReason = new Select(homeValuationError);
 		homeValuationReason.selectByVisibleText(prop.getProperty("homeValuationReason"));
 		streetAddressProperty.sendKeys(prop.getProperty("address"));	
 	}
@@ -177,6 +214,26 @@ public class HomeValues extends TestBase{
 		Boolean changeLocationEnabled = changeLocation.isEnabled();
 		return changeLocationEnabled;
 	}
+	
+	public Boolean verifyZipCodeTextBoxOnChangeLocationClick() {
+		changeLocation.click();
+		wait.until(ExpectedConditions.elementToBeClickable(updateZipCodeTextBox));
+		Boolean zipCodeTextBoxDisplayed = updateZipCodeTextBox.isDisplayed();
+		return zipCodeTextBoxDisplayed;
+	}
+	
+	public Boolean verifyUpdateBtn() {
+		Boolean updateBtnDisplayed = updateBtn.isDisplayed();
+		return updateBtnDisplayed;
+	}
+	
+	public void updateLocation() {
+		updateZipCodeTextBox.sendKeys(prop.getProperty("changedZipcode"));
+		wait.until(ExpectedConditions.elementToBeClickable(updateBtn));
+		updateBtn.click();
+		wait.until(ExpectedConditions.invisibilityOf(updateBtn));
+	}
+	
 	
 	public void selectHomeValuesDrpDwn() {
 		Select bedroomSelection = new Select(bedroomsSelect);
@@ -200,7 +257,20 @@ public class HomeValues extends TestBase{
 		firstName.sendKeys(prop.getProperty("firstname"));	
 		lastName.sendKeys(prop.getProperty("lastname"));
 		phoneNumber.sendKeys(prop.getProperty("phonenumber"));
-		email.sendKeys(prop.getProperty("emailaddress"));
+		
+	}
+	
+	public Boolean verifyErrorDisplayedIfInvalidEmailAddress() {
+		email.sendKeys(prop.getProperty("invalidEmailaddress"));
+		continueSearchHomeValuesBtn.click();
+		Boolean invalidEmailErrorDisplayed = errorEmail.isDisplayed();
+		return invalidEmailErrorDisplayed;
+	}
+	
+	public void enterValidEmail() {
+		email.clear();
+		email.sendKeys(prop.getProperty("emailAddress"));
+		
 	}
 	
 	public void checkOffersSelection() {

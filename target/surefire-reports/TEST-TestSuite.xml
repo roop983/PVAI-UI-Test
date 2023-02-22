@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="9.592" tests="2" errors="0" skipped="0" failures="0">
+<testsuite name="TestSuite" time="12.877" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="jansi.mode" value="force"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -22,7 +22,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/rupalidash/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf15343441839692094222.tmp"/>
+    <property name="classworlds.conf" value="/Users/rupalidash/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf6831305159792774793.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/rupalidash/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -55,10 +55,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="java.vendor.version" value="Temurin-17.0.5+8"/>
-    <property name="m2e.build.project.data.socket.port" value="58801"/>
+    <property name="m2e.build.project.data.socket.port" value="63891"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="homeRealEstateTest" classname="com.pvai.qa.testcases.HomeValuesTest" time="3.251"/>
-  <testcase name="searchHomeValuesFormTest" classname="com.pvai.qa.testcases.HomeValuesTest" time="6.341"/>
+  <testcase name="homeRealEstateTest" classname="com.pvai.qa.testcases.HomeValuesTest" time="3.316"/>
+  <testcase name="searchHomeValuesFormTest" classname="com.pvai.qa.testcases.HomeValuesTest" time="9.561"/>
 </testsuite>
