@@ -1,6 +1,7 @@
 # PVAI-UI-Test Coding Challenge
 
 Home Values Site Automation: http://www.homegain.com/homevalues.
+Test Steps:
 1. Landing on the Home page, entering a valid Zip Code
 2. Selection of the Home Values page on the subsequent form
 3. Testing “Search Home Values” form by entering various input values per field and
